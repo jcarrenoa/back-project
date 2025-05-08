@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use('/users', userRoutes);
 
-mongoose.connect('mongodb://localhost:27017/')
+mongoose.connect('mongodb://localhost:27017/backend-project')
   .then(() => {
     console.log('✅ Conectado a MongoDB');
     app.listen(PORT, () => console.log(`🚀 Servidor en http://localhost:${PORT}`));
