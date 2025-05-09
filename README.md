@@ -48,8 +48,8 @@ Este proyecto es un sistema de gestión de biblioteca que permite administrar us
 ### 1. Clonar el repositorio
 
 ```bash
-git clone <url-del-repositorio>
-cd <nombre-del-repositorio>
+git clone https://github.com/jcarrenoa/back-project.git
+cd back-project
 ```
 
 ### 2. Instalar dependencias
