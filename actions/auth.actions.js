@@ -14,6 +14,10 @@ export const loginUser = async (username, password) => {
     throw new Error('Contraseña incorrecta');
   }
 
+  if (!user.enabled) {
+    throw new Error('Usuario no habilitado');
+  }
+
   const token = jwt.sign(
     { userId: user._id },
     process.env.JWT_SECRET,

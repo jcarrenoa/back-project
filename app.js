@@ -15,7 +15,7 @@ app.use('/auth', authRoutes);
 app.use('/books', bookRoutes);
 app.use('/reserve', reservationRoutes);
 
-mongoose.connect('mongodb://localhost:27017/backend-project')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('✅ Conectado a MongoDB');
     app.listen(PORT, () => console.log(`🚀 Servidor en http://localhost:${PORT}`));
