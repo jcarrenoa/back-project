@@ -30,10 +30,14 @@ Este proyecto es un sistema de gestión de biblioteca que permite administrar us
 |-----|-----|------|-----|--------|
 | `/` | error | error | error | error |
 | `/users` | List all users<br><br>private - Authentication | Create user<br>body:<br>```{<br>  name,<br>  email,<br>  username,<br>  password<br>  passwordConfirmation<br>}```<br>public | error | Delete user<br>body:<br>```{<br>  id<br>}```<br>private: - Authentication<br>- Authorization |
-| `/users/update` | | | | |
-| `/book` | | | | |
-| `/book/delete` | | | | |
-| `/book/update` | | | | |
+| `/users/:_id` | | | | |
+| `/users/update/:_id` | | | | |
+| `/users/delete/:_id` | | | | |
+| `/users/permission` | | | | |
+| `/books` | | | | |
+| `/books/:_id` | | | | |
+| `/books/delete/:_id` | | | | |
+| `/books/update/:_id` | | | | |
 | `/auth/login` | | | | |
 | `/reserve` | | | | |
 
@@ -86,6 +90,10 @@ node createAdmin.js
 ```
 
 Este script creará un usuario administrador para poder gestionar el sistema.
+
+Las credenciales de inicio de sesión son:
+- username: admin
+- password: admin123
 
 ### 6. Iniciar la aplicación
 
