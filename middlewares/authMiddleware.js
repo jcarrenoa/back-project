@@ -17,7 +17,7 @@ export const authMiddleware = async (req, res, next) => {
 
     req.user = {
       userId: user._id,
-      role: user.role,
+      permissions: user.permissions,
     };
 
     next();

@@ -26,7 +26,8 @@ async function createAdmin() {
       name: 'Administrador',
       email: 'admin@example.com',
       password: hashedPassword,
-      role: 'admin'
+      role: 'admin',
+      permissions: ['createSuperUser', 'deleteUser', 'updateUser', 'createBook', 'deleteBook', 'updateBook', 'deleteReservation', 'updateReservation']
     });
 
     await adminUser.save();

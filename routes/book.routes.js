@@ -7,9 +7,9 @@ import { requirePermission } from '../middlewares/requirePermission.js';
 const router = express.Router();
 
 router.get('/', Book.getAllBooks);
-router.post('/', authMiddleware, requirePermission("admin"), Book.createBook);
+router.post('/', authMiddleware, requirePermission("createBook"), Book.createBook);
 router.get('/:_id', Book.getBookById);
-router.patch('/delete/:_id', authMiddleware, requirePermission("admin"), Book.deleteBook);
-router.patch('/update/:_id', authMiddleware, requirePermission("admin"), Book.updateBook);
+router.patch('/delete/:_id', authMiddleware, requirePermission("deleteBook"), Book.deleteBook);
+router.patch('/update/:_id', authMiddleware, requirePermission("updateBook"), Book.updateBook);
 
 export default router;

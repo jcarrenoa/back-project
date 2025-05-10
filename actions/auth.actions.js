@@ -4,7 +4,6 @@ import User from '../models/user.model.js';
 
 export const loginUser = async (username, password) => {
   const user = await User.findOne({ username });
-  console.log('Usuario encontrado:', user);
   if (!user) {
     throw new Error('Usuario no encontrado o deshabilitado');
   }

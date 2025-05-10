@@ -1,7 +1,7 @@
 import Book from '../models/book.model.js';
 import User from '../models/user.model.js';
 
-export async function reserveBook(userId, bookId, dueDate) {
+export async function reserveBook(userId, bookId) {
   const book = await Book.findById(bookId);
   if (!book) throw new Error('Libro no encontrado');
   if (!book.enabled) throw new Error('El libro está inhabilitado');
@@ -11,10 +11,13 @@ export async function reserveBook(userId, bookId, dueDate) {
   if (!user) throw new Error('Usuario no encontrado');
   if (!user.enabled) throw new Error('El usuario está inhabilitado');
 
+  const reservedAt = new Date();
+  const dueDate = new Date(reservedAt.getTime() + 5 * 24 * 60 * 60 * 1000)
+
   const reservation = {
     reservedBy: user._id,
-    reservedAt: new Date(),
-    dueDate: new Date(dueDate)
+    reservedAt,
+    dueDate
   };
 
   book.reservations.push(reservation);

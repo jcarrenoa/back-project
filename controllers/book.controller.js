@@ -12,7 +12,17 @@ export async function getAllBooks(req, res) {
 
 export async function createBook(req, res) {
   try {
-    const newBook = await bookService.createBook(req.body);
+    const { title, author, genre, publishedYear } = req.body;
+    const createdBy = req.user.userId;
+
+    const newBook = await bookService.createBook({
+      title,
+      author,
+      genre,
+      publishedYear,
+      createdBy
+    });
+
     res.status(201).json(newBook);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -47,9 +57,8 @@ export async function deleteBook(req, res) {
 
 export async function updateBook(req, res) {
   const bookId = req.params;
-
   try {
-    const updated = await updateBookById(bookId, req.body);
+    const updated = await bookService.updateBookById(bookId, req.body);
     res.status(200).json(updated);
   } catch (err) {
     res.status(400).json({ message: err.message });

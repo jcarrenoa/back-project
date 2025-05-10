@@ -14,7 +14,7 @@ const BookSchema = new mongoose.Schema({
     enabled: { type: Boolean, default: true },
     reservated: { type: Boolean, default: false },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    reservations: [ReservationSchema]
+    reservations: { type: [ReservationSchema], default: [] }
 });
   
 const Book = mongoose.model('Book', BookSchema);
