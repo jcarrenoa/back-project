@@ -3,7 +3,10 @@ import * as userService from '../actions/user.actions.js';
 export async function createUser(req, res) {
   try {
     const newUser = await userService.createUser(req.body);
-    res.status(201).json(newUser);
+    if (!newUser) {
+      return res.status(400).json({ message: 'Error al crear el usuario' });
+    }
+    res.status(201).json({ message: 'Usuario creado correctamente' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -12,7 +15,10 @@ export async function createUser(req, res) {
 export async function createPermissionUser(req, res) {
   try {
     const newUser = await userService.createPermissionUser(req.body);
-    res.status(201).json(newUser);
+    if (!newUser) {
+      return res.status(400).json({ message: 'Error al crear el usuario' });
+    }
+    res.status(201).json({ message: 'Usuario creado correctamente' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
