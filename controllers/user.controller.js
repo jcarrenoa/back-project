@@ -64,7 +64,7 @@ export async function updateUser(req, res) {
   const userId = req.params;
 
   try {
-    const updatedUser = await userService.updateUserById(userId, req.body);
+    const updatedUser = await userService.updateUserById(userId, req.body, req.user);
     res.status(200).json(updatedUser);
   } catch (err) {
     res.status(400).json({ message: err.message });

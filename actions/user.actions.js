@@ -32,8 +32,9 @@ export async function deleteUser(id) {
   return await User.findByIdAndUpdate(id, { enabled: false });
 }
 
-export async function updateUserById(id, data) {
+export async function updateUserById(id, data, user) {
   const salt = await bcrypt.genSalt(10);
+  if ((data.role || data.permissions || data.enabled || data.reservationHistory) && !user.permissions.includes('updateUser')) throw new Error('No tienes los permisos necesarios para modificar el rol, permisos, habilitación o historial de reservas');
   if (data.password) {
     const hashedPassword = await bcrypt.hash(data.password + process.env.PEPPER, salt);
     data.password = hashedPassword;
