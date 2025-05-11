@@ -37,6 +37,23 @@ Este proyecto es un sistema de gestión de biblioteca que permite administrar us
 | `/auth/login` | error | Login user<br>body:<br>{<br>  username,<br>   password}<br><br>public| error | error |
 | `/reserve` | error | Create reservation<br>body:<br>{<br> bookId<br>}<br><br>private - Authentication | error | error |
 
+## Roles y permisos
+
+# Roles
+- Admin
+- User
+- SuperUser
+
+# Permisos:
+- createSuperUser
+- deleteUser
+- updateUser
+- createBook
+- deleteBook
+- updateBook
+- deleteReservation
+- updateReservation
+
 ## Requisitos previos
 
 - Node.js (v14 o superior)
