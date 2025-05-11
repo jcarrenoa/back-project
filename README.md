@@ -39,12 +39,12 @@ Este proyecto es un sistema de gestión de biblioteca que permite administrar us
 
 ## Roles y permisos
 
-# Roles
+### Roles
 - Admin
 - User
 - SuperUser
 
-# Permisos:
+### Permisos:
 - createSuperUser
 - deleteUser
 - updateUser
