@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/', Book.getAllBooks);
 router.post('/', authMiddleware, requirePermission("createBook"), Book.createBook);
 router.get('/:_id', Book.getBookById);
-router.patch('/delete/:_id', authMiddleware, requirePermission("deleteBook"), Book.deleteBook);
-router.patch('/update/:_id', authMiddleware, requirePermission("updateBook"), Book.updateBook);
+router.delete('/:_id', authMiddleware, requirePermission("deleteBook"), Book.deleteBook);
+router.patch('/:_id', authMiddleware, requirePermission("updateBook"), Book.updateBook);
 
 export default router;
