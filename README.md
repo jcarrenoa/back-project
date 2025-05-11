@@ -26,20 +26,16 @@ Este proyecto es un sistema de gestión de biblioteca que permite administrar us
 
 ## API
 
-| URL | GET | POST | PUT | DELETE |
+| URL | GET | POST | PATCH | DELETE |
 |-----|-----|------|-----|--------|
 | `/` | error | error | error | error |
-| `/users` | List all users<br><br>private - Authentication | Create user<br>body:<br>```{<br>  name,<br>  email,<br>  username,<br>  password<br>  passwordConfirmation<br>}```<br>public | error | Delete user<br>body:<br>```{<br>  id<br>}```<br>private: - Authentication<br>- Authorization |
-| `/users/:_id` | | | | |
-| `/users/update/:_id` | | | | |
-| `/users/delete/:_id` | | | | |
-| `/users/permission` | | | | |
-| `/books` | | | | |
-| `/books/:_id` | | | | |
-| `/books/delete/:_id` | | | | |
-| `/books/update/:_id` | | | | |
-| `/auth/login` | | | | |
-| `/reserve` | | | | |
+| `/users` | List all users <br><br>public | Create user<br>body:<br>{<br>  username,<br>   name,<br>    email,<br> password<br>}<br><br>public | error | error |
+| `/users/:_id` | One user by ID <br><br>public | error |  Update user: ID<br>body:<br>{<br>    username,<br>   name,<br>   email,<br>  password<br>}<br><br>private - Authentication \- Authorization | Delete user: ID<br><br>private - Authentication \- Authorization |
+| `/users/permission` | error | Create user<br>body:<br>{<br>    username,<br>   name,<br>   email,<br>  password,<br>  Permissions<br>}<br><br>private - Authentication \- Authorization | error | error |
+| `/books` | List all books <br><br>public | Create book<br>body:<br>{<br>  title,<br>    author,<br> genre,<br>   publishedYear<br>}<br><br>private - Authentication \- Authorization | error | error |
+| `/books/:_id` | One book by ID <br><br>public | error | Update book: ID <br>body:<br>{<br>    title,<br>    author,<br> genre,<br>   publishedYear<br>}<br><br>private - Authentication \- Authorization| Delete book: ID<br><br>private - Authentication \- Authorization |
+| `/auth/login` | error | Login user<br>body:<br>{<br>  username,<br>   password}<br><br>public| error | error |
+| `/reserve` | error | Create reservation<br>body:<br>{<br> bookId<br>}<br><br>private - Authentication | error | error |
 
 ## Requisitos previos
 
